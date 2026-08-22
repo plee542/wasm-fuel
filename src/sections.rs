@@ -44,6 +44,11 @@ pub enum ParseErrorKind {
     SectionOutOfOrder,
     /// A section's declared size claims more bytes than remain in the input.
     SectionSizeMismatch,
+    /// A byte where a value type was expected is not one of `i32`/`i64`/
+    /// `f32`/`f64`.
+    InvalidValType,
+    /// A function type did not start with the `0x60` form byte.
+    InvalidFuncType,
 }
 
 /// A parse failure, with the byte offset that caused it.
