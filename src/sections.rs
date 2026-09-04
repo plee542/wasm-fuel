@@ -49,6 +49,14 @@ pub enum ParseErrorKind {
     InvalidValType,
     /// A function type did not start with the `0x60` form byte.
     InvalidFuncType,
+    /// An import description's kind byte, mutability flag or table element
+    /// type was not one of the values the format defines.
+    InvalidExternKind,
+    /// A limits pair had a flag byte other than `0x00`/`0x01`, or a maximum
+    /// smaller than its minimum.
+    InvalidLimits,
+    /// A name (import module/field, export name) was not valid UTF-8.
+    InvalidUtf8,
 }
 
 /// A parse failure, with the byte offset that caused it.

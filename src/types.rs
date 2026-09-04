@@ -26,7 +26,7 @@ pub struct FuncType {
     pub results: Vec<ValType>,
 }
 
-fn read_val_type(bytes: &[u8], pos: &mut usize, base: usize) -> Result<ValType, ParseError> {
+pub(crate) fn read_val_type(bytes: &[u8], pos: &mut usize, base: usize) -> Result<ValType, ParseError> {
     let offset = base + *pos;
     let byte = *bytes
         .get(*pos)
