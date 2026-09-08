@@ -52,7 +52,7 @@ pub struct Import {
     pub kind: ExternKind,
 }
 
-fn read_name(bytes: &[u8], pos: &mut usize, base: usize) -> Result<String, ParseError> {
+pub(crate) fn read_name(bytes: &[u8], pos: &mut usize, base: usize) -> Result<String, ParseError> {
     let len_offset = base + *pos;
     let len = read_u32(bytes, pos)
         .map_err(|_| ParseError { offset: len_offset, kind: ParseErrorKind::Leb })? as usize;
