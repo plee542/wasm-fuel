@@ -57,6 +57,12 @@ pub enum ParseErrorKind {
     InvalidLimits,
     /// A name (import module/field, export name) was not valid UTF-8.
     InvalidUtf8,
+    /// A function import or a function section entry named a type index that
+    /// the type section does not define.
+    TypeIndexOutOfRange,
+    /// The function and code sections declared different numbers of
+    /// functions; every declared function needs exactly one body.
+    FunctionCodeMismatch,
 }
 
 /// A parse failure, with the byte offset that caused it.
